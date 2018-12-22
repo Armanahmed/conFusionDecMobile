@@ -1,6 +1,7 @@
-import { HttpClient, Response } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Response } from '@angular/http';
 import 'rxjs/add/observable/throw';
 
 /*
@@ -24,7 +25,7 @@ export class ProcessHttpmsgProvider {
   public handleError(error: Response | any) {
   	let errMsg: string;
 
-  	if(error instanceof Respnse) {
+  	if(error instanceof Response) {
   		const body = error.json();
   		const err = body.error || JSON.stringify(body);
   		errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
